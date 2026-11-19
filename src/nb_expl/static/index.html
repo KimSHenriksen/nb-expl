@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notebook Explainer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Notebook Explainer <span class="muted" id="models"></span></div>
+    <form id="run-form" class="run-form">
+      <input id="path" type="text" placeholder="/path/to/notebook.py (Databricks source export: .py, .sql, .scala, .r)" spellcheck="false" autocomplete="off">
+      <button type="submit" class="primary">Generate</button>
+      <label class="secondary file-btn">Upload…<input id="upload" type="file" accept=".py,.sql,.scala,.r"></label>
+      <button type="button" id="example" class="link">Use example</button>
+    </form>
+  </header>
+
+  <section id="progress" class="progress hidden">
+    <div class="progress-head" id="progress-head"><span class="spinner" id="spinner"></span><strong id="progress-title">Working…</strong><span class="muted" id="elapsed"></span><span class="muted toggle-hint">show log</span></div>
+    <ol id="log"></ol>
+  </section>
+
+  <div id="error" class="error hidden"></div>
+
+  <main id="result" class="hidden">
+    <div class="doc-col">
+      <nav class="tabs" id="tabs"></nav>
+      <div class="doc-toolbar"><span id="doc-stats" class="muted"></span><a id="download" class="link" href="#" download>Download Markdown</a></div>
+      <article id="doc" class="doc"></article>
+    </div>
+    <aside class="code-col">
+      <div id="code-panel" class="code-panel">
+        <div class="code-empty muted">Click a citation such as <span class="cite static">C26:L320</span> to see the code it refers to.</div>
+      </div>
+    </aside>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>
